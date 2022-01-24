@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/medalcount/static/css/main.ed7b4be6.css",
+    "main.js": "/medalcount/static/js/main.d02ff1cb.js",
+    "static/js/787.834bee19.chunk.js": "/medalcount/static/js/787.834bee19.chunk.js",
+    "index.html": "/medalcount/index.html",
+    "main.ed7b4be6.css.map": "/medalcount/static/css/main.ed7b4be6.css.map",
+    "main.d02ff1cb.js.map": "/medalcount/static/js/main.d02ff1cb.js.map",
+    "787.834bee19.chunk.js.map": "/medalcount/static/js/787.834bee19.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed7b4be6.css",
+    "static/js/main.d02ff1cb.js"
+  ]
+}
