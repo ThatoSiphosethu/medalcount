@@ -6,44 +6,30 @@ import Typography from '@mui/material/Typography';
 import IndeterminateCheckBox from '@mui/icons-material/IndeterminateCheckBox';
 
 class Country extends Component {
-    state = {
-        country: this.props.country.country,
-        goldMedalCount: this.props.country.goldMedalCount
-    }
    
 
-    increament = () => {
-        this.setState({
-            goldMedalCount: this.state.goldMedalCount + 1
-        });
-    }
-
-    decrease = () => {
-        this.setState ({
-            goldMedalCount: this.state.goldMedalCount - 1
-        })
-    }
-
-    // decrease(){
-    //     if(this.state.goldMedalCount === 0)
-    //     {
-    //        this.setState(prevState => ({goldMedalCount: prevState.goldMedalCount - 1 }))
-    //     }
-    //  }
-
     render() {
-        console.log(this.props);
+
+        const {country, onIncrease, onDecrease} = this.props;
+
         return (
             <Card sx={{bgcolor: 'lightGray', minWidth: 275 }}>
                 <CardContent>
-                    <Typography sx={{ fontSize: 15 }} color="text.secondary" gutterBottom>
-                        <h3>Country : {this.state.country}  </h3>
+
+                    {/* <div> {country.country}</div> */}
+
+                    <Typography sx={{ fontSize: 15 }} color="black" gutterBottom>
+                        Country : {country.country}
                     </Typography>   
-                    <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                        Gold Medals : {this.state.goldMedalCount} 
+                    <Typography sx={{ mb: 1.5 }} >
+                        Gold Medals : {country.goldMedalCount} 
                     </Typography>  
-                    <AddBoxIcon size="small" onClick={this.increament} color='primary'></AddBoxIcon>
-                    <IndeterminateCheckBox size="small" onClick={this.decrease} color='secondary'></IndeterminateCheckBox>     
+                    <AddBoxIcon size="small" onClick={() => onIncrease(country)} color='primary'></AddBoxIcon>
+                    <IndeterminateCheckBox size="small" 
+                        onClick={() => onDecrease(country)}     
+                        color='secondary'
+                        disabled={country.goldMedalCount === 0}>
+                    </IndeterminateCheckBox>     
                 </CardContent>
                        
             </Card>
