@@ -26,7 +26,7 @@ class Country extends Component {
                     {/* <div> {country.country}</div> */}
 
                     <Typography sx={{ fontSize: 15 }} color="black" gutterBottom>
-                        {country.country} {this.medalsPerCountry(country, medals)} 
+                        {country.country} : {this.medalsPerCountry(country, medals)} 
                     </Typography>   
                     <Typography sx={{ mb: 1.5 }} >
                         { medals.map(medal => 

@@ -43,8 +43,6 @@ class App extends Component {
     }
   };
 
-  
-
   overallMedalCount() {
     const gold = this.state.countries.reduce((a, b) => a + b.Gold, 0);
 		const silver = this.state.countries.reduce(
@@ -60,14 +58,11 @@ class App extends Component {
 
   }
 
-  
-
   render() { 
  
-
     return ( 
       <div className="App">
-        <div>Total Medals {this.overallMedalCount()}</div>
+        <div>Total Medals : {this.overallMedalCount()}</div>
         <Grid container spacing={4}
           justifyContent='center'>
           <Grid item xs={6}>
@@ -80,8 +75,6 @@ class App extends Component {
                   onDecrease={ this.decrease } 
               />              
             ))}
-
-
           </Grid>
         </Grid>  
         {/* <CountryCounter totalCountries={ this.state.countries.length }/>  
