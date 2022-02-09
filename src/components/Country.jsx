@@ -17,7 +17,7 @@ class Country extends Component {
 
     render() {
 
-        const {country, medals, onIncrease, onDecrease} = this.props;
+        const {country, medals, onIncrease, onDecrease, onDelete} = this.props;
 
         return (
             <Card sx={{bgcolor: 'lightGray', minWidth: 275 }}>
@@ -38,13 +38,11 @@ class Country extends Component {
                             onDecrease={ onDecrease } 
                            /> 
                         )}
-                    </Typography>  
-                    {/* <AddBoxIcon size="small" onClick={() => onIncrease(country)} color='primary'></AddBoxIcon>
-                    <IndeterminateCheckBox size="small" 
-                        onClick={() => onDecrease(country)}     
-                        color='secondary'
-                        disabled={country.goldMedalCount === 0}>
-                    </IndeterminateCheckBox>      */}
+                    </Typography> 
+                    <Typography>
+                        <button onClick={() => onDelete(country.id)}>Delete Country</button>
+                    </Typography>
+                 
                 </CardContent>
                        
             </Card>

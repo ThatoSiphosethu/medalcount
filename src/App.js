@@ -4,10 +4,9 @@
 
 import React, { Component } from 'react';
 import './App.css';
-// import CountryCounter from './components/CountryCounter';
 import Country from './components/Country';
-// import MedalsCounter from './components/MedalsCounter';
 import { Grid } from '@material-ui/core';
+import NewCountry from './components/NewCountry';
 
 
 class App extends Component {
@@ -25,6 +24,19 @@ class App extends Component {
       {id: 3, type: 'Bronze'}
     ],
   };
+
+  addCountry = (country) => {
+    const { countries } = this.state;
+    const id = countries.length === 0 ? 1 : Math.max(...countries.map(country => country.id)) + 1;
+    const mutableCountries = [...countries].concat({ id: id, name: country, gold: 0, silver: 0, bronze: 0 });
+    this.setState({ countries: mutableCountries });
+  }
+
+  deleteCountry  = (countryId) => {
+    const { countries } = this.state;
+    const mutableCountries = [...countries].filter(c => c.id !== countryId);
+    this.setState({ countries: mutableCountries });
+  } 
 
  
   increament = (countryId, medalType) => {
@@ -73,12 +85,14 @@ class App extends Component {
                   medals={this.state.medals}
                   onIncrease={this.increament}
                   onDecrease={ this.decrease } 
+                  onDelete = {this.deleteCountry}
               />              
             ))}
           </Grid>
         </Grid>  
-        {/* <CountryCounter totalCountries={ this.state.countries.length }/>  
-        <MedalsCounter/>          */}
+        <div>
+          <NewCountry addNewCountry = {this.addCountry}/>
+        </div>
       </div>
      );
   }
